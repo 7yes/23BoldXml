@@ -7,7 +7,7 @@ import androidx.activity.viewModels
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.jess.mbold.databinding.ActivityMainBinding
 import com.jess.mbold.ui.weather.WeatherActivity
-import com.jess.mbold.ui.weather.WeatherViewModel
+import com.jess.mbold.ui.viewmodel.WeatherViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
