@@ -3,15 +3,15 @@ Hola
 El software viene con la la dependencia de splash, la nueva avalada por googe intalada, puse una imagen fija pero esta permite colocar animaciones
 como ven la estructura en MVVM con clean arquitecture cree diferentes capas, implemante dde las 3 fases(splash, busqueda de ciudad, mostrar pronostico),
 las 2 primeras.
-Todo esta hecho con con MVVM y Livedata, se puede mejorar claro bastante
+Todo esta hecho con con MVVM y Livedata, se puede mejorar claro! bastante
 asi:
     * crear mappers para comunicarse entre diferentes capas domain, data, ui.
     * implementar animaciones en el splash
-    * implententar mostrar el pronistico en la 3ra pantalla(se hizo la llamada de API falta mostrar)
+    * implementar mostrar el pronostico en la 3ra pantalla(se hizo la llamada de API falta mostrar)
     * encapsular la informacion del API, en una clase que permica capturar el resultado de la API
         pero que guarde el tipo de error si es que hay un error
     * colocar states en la UI, para loading, success o error y manejar el estado segun la respuesta
-    * crear una data class con solo la iinformacion necesara, limpie el model en data, pero aun ahay datos q no se
+    * crear una data class con solo la informacion necesaria, limpie el model en data, pero aun ahay datos q no se
     necesitan para lo cual se puede usar GraphQL o simplemente limpiarel modelo de datos.
 
     por fav or vean este otro proyecto ya q no se si esmeralda le dijo pero me el abrazo del oso onose pero me tiro en cama 3 dias
