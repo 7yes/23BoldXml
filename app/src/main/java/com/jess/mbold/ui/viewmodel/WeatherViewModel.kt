@@ -35,8 +35,7 @@ class WeatherViewModel @Inject constructor(
             var s = emptyArray<String>()
             val response = getCitiesUseCase.getCities(city)
             response?.forEach {
-                s += "${it.name} en ${it.country}"
-
+                    s += "${it.name} en ${it.country}"
             }
             if (s.isNotEmpty()) {
                 _cities.postValue(s.toList())
@@ -46,11 +45,19 @@ class WeatherViewModel @Inject constructor(
 
     fun getForecast(city: String) {
         viewModelScope.launch {
+            println("ene entre")
             val response = getForcaseUseCase.getForecast(city)
             response?.let {
                 println("ene ddd ${it.current}")
                 println("ene ddd ${it.forecast}")
                 println("ene ddd ${it.location}")
+
+                println("ene ddd ${it.location.name}")
+                println("ene ddd ${it.location.country}")
+                println("ene ddd ${it.forecast.forecastday[0].date}")
+                println("ene ddd ${it.forecast.forecastday[0].hour[1].temp_c}")
+                println("ene ddd ${it.forecast.forecastday[0].hour[1].condition.icon}")
+                println("ene ddd ${it.forecast.forecastday[0].hour[1].condition.text}")
             }
         }
     }

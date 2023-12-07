@@ -15,7 +15,7 @@ class CityService @Inject constructor(private val api:CityApi) {
 
     @GET
     suspend fun getForecast(city: String): ForecastResponse? {
-        val response = api.getForecast(city)
+        val response = api.getForecast(city = city)
         return response.body()
     }
 }

@@ -25,22 +25,10 @@ class CityFragment : Fragment() {
     ): View {
         // Inflate the layout for this fragment
         _binding = FragmentCityBinding.inflate(layoutInflater, container, false)
-        var cities = resources.getStringArray(R.array.citie)
-        var citiess = emptyArray<String>()
-        viewmodel.cities.observe(viewLifecycleOwner) {
-            citiess = it.toTypedArray()
-            cities = citiess
-            it.forEach {
-                println("ene jh $it")
-            }
-        }
 
-        cities.forEach {
-            println("ene $it")
+        viewmodel.cities.observe(viewLifecycleOwner) {
+            binding.temp.text=it.toString()
         }
-        val arrayAdapter =
-            ArrayAdapter<String>(requireContext(), android.R.layout.simple_list_item_1, cities)
-        binding.etCity.setAdapter(arrayAdapter)
 
         binding.etCity.doOnTextChanged { text, start, before, count ->
             viewmodel.getCities(text.toString())
@@ -48,7 +36,7 @@ class CityFragment : Fragment() {
 
         binding.btnCity.setOnClickListener {
             viewmodel.getForecast(binding.etCity.toString())
-        }
+         }
         return binding.root
     }
 

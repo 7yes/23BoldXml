@@ -14,17 +14,16 @@ interface CityApi {
         @Query("key") apikey:String = API_KEY
     ):Response<ArrayList<CityResponseItem>>
 
-    @GET(FORECAST)
+    @GET(PATH)
     suspend fun getForecast(
-        @Query("q") city:String,
         @Query("key") apikey:String = API_KEY,
-        @Query("days") days: Int =2
-    ):Response<ForecastResponse>
+        @Query("q") city:String
+        ):Response<ForecastResponse>
 
     companion object{
         const val BASE_URL = "https://api.weatherapi.com/v1/"
         const val SEARCH = "search.json"
-        const val FORECAST = "forecast.json"
+        const val PATH = "forecast.json"
         const val API_KEY = "de5553176da64306b86153651221606"
     }
 }
