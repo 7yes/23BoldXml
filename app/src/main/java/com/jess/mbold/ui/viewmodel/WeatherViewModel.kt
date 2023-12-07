@@ -5,13 +5,17 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.jess.mbold.domain.GetCitiesUseCase
+import com.jess.mbold.domain.GetForcaseUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class WeatherViewModel @Inject constructor(private val getCitiesUseCase: GetCitiesUseCase) :
+class WeatherViewModel @Inject constructor(
+    private val getCitiesUseCase: GetCitiesUseCase,
+    private val getForcaseUseCase: GetForcaseUseCase
+) :
     ViewModel() {
     private val _showSplash = MutableLiveData<Boolean>(true)
     val showSplash: LiveData<Boolean> = _showSplash
@@ -40,7 +44,14 @@ class WeatherViewModel @Inject constructor(private val getCitiesUseCase: GetCiti
         }
     }
 
-    fun getForecast(toString: String) {
-
+    fun getForecast(city: String) {
+        viewModelScope.launch {
+            val response = getForcaseUseCase.getForecast(city)
+            response?.let {
+                println("ene ddd ${it.current}")
+                println("ene ddd ${it.forecast}")
+                println("ene ddd ${it.location}")
+            }
+        }
     }
 }
