@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import android.widget.Toast
 import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
@@ -36,6 +37,7 @@ class CityFragment : Fragment() {
 
         binding.btnCity.setOnClickListener {
             viewmodel.getForecast(binding.etCity.toString())
+            Toast.makeText(requireActivity(),"aca paso a la siguiente pantalla el valor escogido, No alcance, por favor vean el link que esta en el readme",Toast.LENGTH_LONG).show()
          }
         return binding.root
     }
